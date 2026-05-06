@@ -22,41 +22,66 @@
 			<button class="reset-button" id="resetRotation">Reset Rotation</button>
 		</div>
 		<div class="controls">
-			<select name="color" id="color">
-				<option value="bgColor">BG Color</option>
-				<option value="animColor">Animated BG Color</option>
-			</select>:
-			<input type="color" id="bgColor" value="#D2D0D6" style="display: inline-grid;">
-			<input type="text" id="animColor" value="#33CCCC, #33CC36, #B8CC33, #FCCA00, #33CC36" style="display: none;">
-			<button class="bg-button" id="animColorButton" style="display: none;">Start BG Anim</button>
-			<label class="form-control" id="sameDesignText" for="sameDesign" style="display: inline-block;">Same
-				Design:<input type="checkbox" id="sameDesign" style="display: inline-grid;"></label>
-			<label class="form-control" id="flippedText" for="flipped" style="display: none; margin: 0px;">Flip
-				Design:<input type="checkbox" id="flipped" style="display: none;"></label></input>
+			<div style="margin-bottom: 12px;">
+				<label for="color" style="margin-right: 8px;">Background:</label>
+				<select name="color" id="color">
+					<option value="bgColor">Solid Color</option>
+					<option value="animColor">Animated Colors</option>
+				</select>
+				<input type="color" id="bgColor" value="#D2D0D6"
+					style="display: inline-block; width: 50px; height: 36px; border: none; border-radius: 8px; cursor: pointer; margin-left: 8px;">
+				<input type="text" id="animColor" value="#33CCCC, #33CC36, #B8CC33, #FCCA00, #33CC36" style="display: none; margin-left: 8px;">
+				<button class="bg-button" id="animColorButton" style="display: none; margin-left: 8px;">Start BG Anim</button>
+			</div>
+			<div>
+				<label class="form-control" id="sameDesignText" for="sameDesign" style="margin-right: 16px;">
+					<input type="checkbox" id="sameDesign" style="margin-right: 6px;">
+					Same Design
+				</label>
+				<label class="form-control" id="flippedText" for="flipped" style="display: none;">
+					<input type="checkbox" id="flipped" style="margin-right: 6px;">
+					Flip Design
+				</label>
+			</div>
 		</div>
 
 		<div class="grid-container">
 			<div class="grid-item">
 				<h4 class="grid-title">Image #1</h4>
 				<ul>
-					<li><input type="file" id="inputImage1" accept="image/*"></li>
-					<li><label for="speed1">Rotation Speed (seconds):</label>
+					<li>
+						<label for="inputImage1">Upload Image:</label>
+						<input type="file" id="inputImage1" accept="image/*">
+					</li>
+					<li>
+						<label for="speed1">Rotation Speed (seconds):</label>
 						<input type="number" id="speed1" min="1" max="10" value="5">
 					</li>
-					<li><label for="direction1">Flip Rotate Direction:<input type="checkbox" id="direction1"></label>
+					<li>
+						<label for="direction1">
+							<input type="checkbox" id="direction1" style="margin-right: 6px;">
+							Flip Rotation Direction
+						</label>
 					</li>
 				</ul>
 			</div>
 			<div class="grid-item">
 				<h4 class="grid-title">Image #2</h4>
 				<ul>
-					<li><input type="file" id="inputImage2" accept="image/*">
-						<p id="inputImage2Text" style="display: none;">Same Design Checked!</p>
+					<li>
+						<label for="inputImage2">Upload Image:</label>
+						<input type="file" id="inputImage2" accept="image/*">
+						<p id="inputImage2Text" style="display: none; color: #27ae60; font-size: 12px; margin-top: 4px;">✓ Same Design Checked</p>
 					</li>
-					<li><label for="speed2">Rotation Speed (seconds):</label>
+					<li>
+						<label for="speed2">Rotation Speed (seconds):</label>
 						<input type="number" id="speed2" min="1" max="10" value="5">
 					</li>
-					<li><label for="direction2">Flip Rotate Direction:<input type="checkbox" id="direction2"></label>
+					<li>
+						<label for="direction2">
+							<input type="checkbox" id="direction2" style="margin-right: 6px;">
+							Flip Rotation Direction
+						</label>
 					</li>
 				</ul>
 			</div>
