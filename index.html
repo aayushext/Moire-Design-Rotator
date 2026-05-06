@@ -35,8 +35,12 @@
 							<option value="animColor">Animated Colors</option>
 						</select>
 						<input type="color" id="bgColor" value="#D2D0D6" class="color-picker">
-						<input type="text" id="animColor" value="#33CCCC, #33CC36, #B8CC33, #FCCA00, #33CC36" style="display: none;">
-						<button class="bg-button" id="animColorButton" style="display: none;">Start BG Anim</button>
+						<div id="animColorControls" style="display:none; align-items:center; gap:8px;">
+							<div id="animColorList" style="display:flex; gap:8px; align-items:center;"></div>
+							<button class="bg-button" id="addAnimColor">Add Color</button>
+							<button class="bg-button" id="removeAnimColor">Remove</button>
+							<button class="bg-button" id="animColorButton">Start BG Anim</button>
+						</div>
 					</div>
 				</div>
 

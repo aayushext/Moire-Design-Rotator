@@ -193,6 +193,33 @@ body {
 
 /* Old controls styling override */
 
+/* Animated color pickers */
+#animColorControls {
+	display: flex;
+}
+
+.anim-color {
+	width: 40px;
+	height: 36px;
+	border: none;
+	padding: 0;
+	background: transparent;
+	border-radius: 6px;
+}
+
+.bg-button {
+	background-color: var(--neutral);
+	color: var(--white);
+	border: none;
+	padding: 8px 10px;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+.bg-button:hover {
+	background-color: var(--light-accent);
+}
+
 /* Specific Element Styles */
 #image1 {
 	justify-content: center;
