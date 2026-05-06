@@ -30,6 +30,11 @@ const variables = getComputedStyle(root);
 let isPaused = false;
 let bgAnimPaused = true;
 let initialSpeed1 = parseFloat(speed1Input.value);
+// initialize visibility of speed control based on current background mode
+if (bgAnimSpeed && colorInput) {
+    bgAnimSpeed.style.display =
+        colorInput.value === "animColor" ? "inline-block" : "none";
+}
 let initialSpeed2 = parseFloat(speed2Input.value);
 
 inputImage1.addEventListener("change", (event) => {
@@ -68,9 +73,11 @@ colorInput.addEventListener("change", (event) => {
 
         imageContainer.style.transitionDuration = "0s";
         imageContainer.style.backgroundColor = bgColor.value;
+        if (bgAnimSpeed) bgAnimSpeed.style.display = "inline-block";
         animColorButton.textContent = "Resume Anim";
     }
 });
+if (bgAnimSpeed) bgAnimSpeed.style.display = "none";
 
 animColorButton.addEventListener("click", () => {
     if (bgAnimPaused === true) {
