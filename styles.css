@@ -22,7 +22,6 @@ body {
 	align-items: stretch;
 	justify-content: flex-start;
 	margin: 0;
-	background-color: var(--soft-bg);
 	color: var(--dark);
 	min-height: 100vh;
 }
