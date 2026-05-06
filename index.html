@@ -13,34 +13,45 @@
 	<div class="main-layout">
 		<!-- Left Sidebar -->
 		<aside class="sidebar">
-			<!-- Play/Reset Controls -->
-			<div class="controls">
-				<button class="pause-button" id="pauseRotation">Start</button>
-				<button class="reset-button" id="resetRotation">Reset Rotation</button>
-			</div>
+			<!-- Unified Controls Card -->
+			<div class="controls-card">
+				<!-- Title -->
+				<h3 class="controls-title">Playback & Settings</h3>
 
-			<!-- Background & Design Options -->
-			<div class="controls">
-				<div style="margin-bottom: 12px;">
-					<label for="color" style="margin-right: 8px;">Background:</label>
-					<select name="color" id="color">
-						<option value="bgColor">Solid Color</option>
-						<option value="animColor">Animated Colors</option>
-					</select>
-					<input type="color" id="bgColor" value="#D2D0D6"
-						style="display: inline-block; width: 50px; height: 36px; border: none; border-radius: 8px; cursor: pointer; margin-left: 8px;">
-					<input type="text" id="animColor" value="#33CCCC, #33CC36, #B8CC33, #FCCA00, #33CC36" style="display: none; margin-left: 8px;">
-					<button class="bg-button" id="animColorButton" style="display: none; margin-left: 8px;">Start BG Anim</button>
+				<!-- Play/Reset Buttons -->
+				<div class="controls-section">
+					<div class="button-group">
+						<button class="pause-button" id="pauseRotation">Start</button>
+						<button class="reset-button" id="resetRotation">Reset Rotation</button>
+					</div>
 				</div>
-				<div>
-					<label class="form-control" id="sameDesignText" for="sameDesign" style="margin-right: 16px;">
-						<input type="checkbox" id="sameDesign" style="margin-right: 6px;">
-						Same Design
-					</label>
-					<label class="form-control" id="flippedText" for="flipped" style="display: none;">
-						<input type="checkbox" id="flipped" style="margin-right: 6px;">
-						Flip Design
-					</label>
+
+				<!-- Background & Design Options -->
+				<div class="controls-section">
+					<div class="control-row">
+						<label for="color">Background:</label>
+						<select name="color" id="color">
+							<option value="bgColor">Solid Color</option>
+							<option value="animColor">Animated Colors</option>
+						</select>
+						<input type="color" id="bgColor" value="#D2D0D6" class="color-picker">
+						<input type="text" id="animColor" value="#33CCCC, #33CC36, #B8CC33, #FCCA00, #33CC36" style="display: none;">
+						<button class="bg-button" id="animColorButton" style="display: none;">Start BG Anim</button>
+					</div>
+				</div>
+
+				<!-- Design Checkboxes -->
+				<div class="controls-section">
+					<div class="checkbox-group">
+						<label class="checkbox-label" id="sameDesignText" for="sameDesign">
+							<input type="checkbox" id="sameDesign">
+							<span>Same Design</span>
+						</label>
+						<label class="checkbox-label" id="flippedText" for="flipped" style="display: none;">
+							<input type="checkbox" id="flipped">
+							<span>Flip Design</span>
+						</label>
+					</div>
 				</div>
 			</div>
 
