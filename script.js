@@ -23,6 +23,7 @@ const addAnimColor = document.getElementById("addAnimColor");
 const removeAnimColor = document.getElementById("removeAnimColor");
 const animColorButton = document.getElementById("animColorButton");
 const bgAnimSpeed = document.getElementById("bgAnimSpeed");
+const bgAnimSpeedLabel = document.getElementById('bgAnimSpeedLabel');
 
 const root = document.querySelector(":root");
 const variables = getComputedStyle(root);
@@ -31,9 +32,12 @@ let isPaused = false;
 let bgAnimPaused = true;
 let initialSpeed1 = parseFloat(speed1Input.value);
 // initialize visibility of speed control based on current background mode
+// initialize visibility of speed control and its label based on current background mode
 if (bgAnimSpeed && colorInput) {
-    bgAnimSpeed.style.display =
-        colorInput.value === "animColor" ? "inline-block" : "none";
+    const show = colorInput.value === "animColor";
+    bgAnimSpeed.style.display = show ? "inline-block" : "none";
+    if (bgAnimSpeedLabel) bgAnimSpeedLabel.style.display = show ? "inline-block" : "none";
+}
 }
 let initialSpeed2 = parseFloat(speed2Input.value);
 
@@ -66,6 +70,8 @@ colorInput.addEventListener("change", (event) => {
         }
 
         imageContainer.style.transitionDuration = "0.75s";
+            if (bgAnimSpeed) bgAnimSpeed.style.display = 'inline-block';
+            if (bgAnimSpeedLabel) bgAnimSpeedLabel.style.display = 'inline-block';
     } else {
         animColorControls.style.display = "none";
         bgColor.style.display = "inline-block";
@@ -73,11 +79,13 @@ colorInput.addEventListener("change", (event) => {
 
         imageContainer.style.transitionDuration = "0s";
         imageContainer.style.backgroundColor = bgColor.value;
-        if (bgAnimSpeed) bgAnimSpeed.style.display = "inline-block";
+            if (bgAnimSpeed) bgAnimSpeed.style.display = "none";
+            if (bgAnimSpeedLabel) bgAnimSpeedLabel.style.display = 'none';
         animColorButton.textContent = "Resume Anim";
     }
 });
-if (bgAnimSpeed) bgAnimSpeed.style.display = "none";
+    if (bgAnimSpeed) bgAnimSpeed.style.display = "none";
+    if (bgAnimSpeedLabel) bgAnimSpeedLabel.style.display = "none";
 
 animColorButton.addEventListener("click", () => {
     if (bgAnimPaused === true) {
