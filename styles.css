@@ -19,11 +19,12 @@
 body {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+	align-items: stretch;
+	justify-content: flex-start;
 	margin: 0;
 	background-color: var(--soft-bg);
 	color: var(--dark);
+	min-height: 100vh;
 }
 
 /* Containers */
@@ -33,28 +34,55 @@ body {
 	align-items: center;
 }
 
+.main-layout {
+	display: flex;
+	gap: 40px;
+	max-width: 1600px;
+	margin: 0 auto;
+	padding: 32px 24px;
+	width: 100%;
+	box-sizing: border-box;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.sidebar {
+	flex: 0 1 550px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.image-section {
+	flex: 0 1 450px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: sticky;
+	top: 100px;
+}
+
 .image-container {
-	margin: auto;
+	margin: 0 auto;
 	background-color: var(--grey);
 	position: relative;
 	border-radius: 16px;
-	width: 325px;
-	height: 325px;
-	padding: 10px;
+	width: 380px;
+	height: 380px;
+	padding: 12px;
 	box-sizing: content-box;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	transition: background-color 0.3s ease-in-out;
 	box-shadow: var(--shadow-md);
-	margin-bottom: 24px;
 }
 
 /* Images */
 .image {
 	position: absolute;
-	width: 325px;
-	height: 325px;
+	width: 380px;
+	height: 380px;
 	animation: rotate var(--rotation-speed, 5s) linear infinite var(--rotation-direction, normal);
 	transform-origin: center center;
 	padding: 0;
@@ -75,16 +103,18 @@ body {
 
 /* Controls */
 .controls {
-	margin-bottom: 20px;
+	margin-bottom: 0;
 	align-items: center;
 	text-align: center;
-	padding: 20px;
+	padding: 24px;
 	background-color: var(--white);
 	border-radius: 12px;
 	box-shadow: var(--shadow);
 	width: 100%;
-	max-width: 750px;
 	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
 }
 
 .pause-button {
@@ -105,12 +135,11 @@ body {
 /* Grid */
 .grid-container {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr;
 	grid-auto-flow: column;
 	border-radius: 16px;
 	justify-content: center;
-	margin-top: 30px;
-	max-width: 750px;
+	margin-top: 0;
 	gap: 16px;
 	width: 100%;
 	box-sizing: border-box;
@@ -166,7 +195,7 @@ body {
 }
 
 .footer {
-	margin-top: 40px;
+	margin-top: auto;
 	margin-bottom: 0;
 	line-height: 1.6;
 	padding: 24px 20px;
@@ -299,8 +328,124 @@ li {
 	margin: 16px 0 0 0;
 }
 
+.instructions-card {
+	margin-top: 8px;
+}
+
 p {
 	margin: 8px 0 0 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+	.main-layout {
+		flex-direction: column-reverse;
+		align-items: center;
+		gap: 20px;
+	}
+
+	.image-section {
+		position: relative;
+		top: 0;
+		flex: 1 1 auto;
+	}
+
+	.sidebar {
+		flex: 1 1 auto;
+		max-width: 100%;
+	}
+}
+
+@media (max-width: 768px) {
+	.main-layout {
+		padding: 16px 12px;
+		gap: 16px;
+	}
+
+	.sidebar {
+		gap: 12px;
+	}
+
+	.grid-container {
+		grid-template-columns: 1fr;
+		gap: 12px;
+		margin-top: 16px;
+	}
+
+	.image-container {
+		width: 280px;
+		height: 280px;
+	}
+
+	.image {
+		width: 280px;
+		height: 280px;
+	}
+
+	.controls {
+		padding: 16px;
+		margin-bottom: 12px;
+	}
+
+	.header {
+		padding: 24px 16px;
+		margin-bottom: 16px;
+	}
+
+	.header h1 {
+		font-size: 24px;
+	}
+}
+
+@media (max-width: 480px) {
+	.main-layout {
+		padding: 12px 8px;
+	}
+
+	.grid-container {
+		gap: 8px;
+	}
+
+	.grid-item {
+		padding: 16px;
+	}
+
+	.image-container {
+		width: 240px;
+		height: 240px;
+		padding: 8px;
+	}
+
+	.image {
+		width: 240px;
+		height: 240px;
+	}
+
+	button,
+	input[type="text"],
+	input[type="number"],
+	select {
+		font-size: 12px;
+		height: 32px;
+		padding: 6px 10px;
+	}
+
+	select {
+		width: 100%;
+	}
+
+	input[type="number"] {
+		width: 80px;
+	}
+
+	.controls {
+		padding: 12px;
+	}
+
+	.header h1 {
+		font-size: 20px;
+		margin: 0;
+	}
 }
 
 
