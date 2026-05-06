@@ -22,6 +22,7 @@ const animColorList = document.getElementById("animColorList");
 const addAnimColor = document.getElementById("addAnimColor");
 const removeAnimColor = document.getElementById("removeAnimColor");
 const animColorButton = document.getElementById("animColorButton");
+const bgAnimSpeed = document.getElementById("bgAnimSpeed");
 
 const root = document.querySelector(":root");
 const variables = getComputedStyle(root);
@@ -236,7 +237,15 @@ function animateBackgroundColor(colors) {
         if (colors.length > 0 && bgAnimPaused !== true) {
             imageContainer.style.backgroundColor = colors[currentIndex];
             currentIndex = (currentIndex + 1) % colors.length;
-            setTimeout(changeColor, 1000); // Change color every 1 second
+            // read speed (seconds) from control, default to 1s
+            let interval = 1000;
+            try {
+                const v = parseFloat(bgAnimSpeed && bgAnimSpeed.value);
+                if (!isNaN(v) && v > 0) interval = Math.max(50, v * 1000);
+            } catch (e) {
+                interval = 1000;
+            }
+            setTimeout(changeColor, interval);
         }
     }
 
