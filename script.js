@@ -1,3 +1,27 @@
+const CACHE_VERSION = "3";
+const CACHE_KEY = "moire-design-rotator-cache-version";
+
+function forceCacheRefresh() {
+    try {
+        const storedVersion = window.localStorage.getItem(CACHE_KEY);
+        const currentUrl = new URL(window.location.href);
+        const versionParam = currentUrl.searchParams.get("v");
+
+        if (storedVersion !== CACHE_VERSION || versionParam !== CACHE_VERSION) {
+            window.localStorage.setItem(CACHE_KEY, CACHE_VERSION);
+            currentUrl.searchParams.set("v", CACHE_VERSION);
+            window.location.replace(currentUrl.toString());
+            return true;
+        }
+    } catch (error) {
+        // If storage or URL rewriting is unavailable, continue normally.
+    }
+
+    return false;
+}
+
+forceCacheRefresh();
+
 const imageContainer = document.getElementById("imageContainer");
 const image1 = document.getElementById("image1");
 const image2 = document.getElementById("image2");
