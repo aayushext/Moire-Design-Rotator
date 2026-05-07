@@ -52,7 +52,7 @@ const bgAnimSpeedLabel = document.getElementById("bgAnimSpeedLabel");
 const root = document.querySelector(":root");
 const variables = getComputedStyle(root);
 
-let isPaused = false;
+let isPaused = true;
 let bgAnimPaused = true;
 let initialSpeed1 = parseFloat(speed1Input.value);
 // initialize visibility of speed control and its label based on current background mode
@@ -172,24 +172,26 @@ direction2CheckBox.addEventListener("click", () => {
 });
 
 pauseRotationButton.addEventListener("click", () => {
-    isPaused = !isPaused;
     if (pauseRotationButton.textContent === "Start") {
+        // Starting rotation from initial paused state
         speed1Input.value = 5;
         speed2Input.value = 5;
+        isPaused = false;
         pauseRotationButton.textContent = "Pause Rotation";
-        isPaused = !isPaused;
         resetAnimation();
         updateImageRotation(image1, speed1Input, direction1CheckBox);
         updateImageRotation(image2, speed2Input, direction2CheckBox);
-    }
-    if (isPaused) {
-        pauseRotationButton.textContent = "Resume Rotation";
-        pauseRotation();
     } else {
-        pauseRotationButton.textContent = "Pause Rotation";
-        resumeRotation();
+        // Toggling between pause and resume
+        isPaused = !isPaused;
+        if (isPaused) {
+            pauseRotationButton.textContent = "Resume Rotation";
+            pauseRotation();
+        } else {
+            pauseRotationButton.textContent = "Pause Rotation";
+            resumeRotation();
+        }
     }
-
     resetAnimation();
 });
 
@@ -229,6 +231,8 @@ function updateImageRotation(image, speedInput, directionSelect) {
     const direction = directionSelect.checked === false ? "normal" : "reverse";
     image.style.setProperty("--rotation-speed", `${speed}s`);
     image.style.setProperty("--rotation-direction", direction);
+    // Control animation play state
+    image.style.animationPlayState = isPaused ? "paused" : "running";
 }
 
 function pauseRotation() {
