@@ -82,6 +82,8 @@ body {
 	align-items: center;
 	transition: background-color 0.3s ease-in-out;
 	box-shadow: var(--shadow-md);
+	overflow: hidden;
+	contain: paint;
 }
 
 /* Images */
@@ -92,6 +94,11 @@ body {
 	animation: rotate var(--rotation-speed, 5s) linear infinite var(--rotation-direction, normal);
 	transform-origin: center center;
 	padding: 0;
+	will-change: transform;
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
 	mix-blend-mode: multiply;
 	filter: contrast(1);
 	border: 0;
