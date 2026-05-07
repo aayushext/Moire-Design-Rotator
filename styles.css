@@ -65,8 +65,8 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	position: sticky;
-	top: 100px;
+	position: static !important;
+	top: auto !important;
 }
 
 .image-container {
@@ -455,7 +455,7 @@ p {
 	}
 
 	.image-section {
-		position: relative;
+		position: static !important;
 		top: 0;
 		flex: 1 1 auto;
 	}
