@@ -437,7 +437,7 @@ p {
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
 	.main-layout {
 		flex-direction: column-reverse;
 		align-items: center;
