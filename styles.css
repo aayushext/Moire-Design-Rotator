@@ -528,6 +528,21 @@ p {
 	.header h1 {
 		font-size: 24px;
 	}
+
+	/* Larger, touch-friendly inputs on small screens */
+	button,
+	input[type="text"],
+	input[type="number"],
+	select {
+		font-size: 16px;
+		height: 44px;
+		padding: 8px 12px;
+	}
+
+	input[type="number"] {
+		width: 100%;
+		min-width: 120px;
+	}
 }
 
 @media (max-width: 480px) {
@@ -567,9 +582,9 @@ p {
 	input[type="text"],
 	input[type="number"],
 	select {
-		font-size: 12px;
-		height: 32px;
-		padding: 6px 10px;
+		font-size: 16px;
+		height: 44px;
+		padding: 8px 12px;
 	}
 
 	select {
@@ -577,7 +592,8 @@ p {
 	}
 
 	input[type="number"] {
-		width: 80px;
+		width: 100%;
+		min-width: 120px;
 	}
 
 	.header h1 {
