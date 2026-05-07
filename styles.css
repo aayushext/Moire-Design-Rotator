@@ -87,8 +87,8 @@ body {
 /* Images */
 .image {
 	position: absolute;
-	width: 100%;
-	height: 100%;
+	width: 98%;
+	height: 98%;
 	animation: rotate var(--rotation-speed, 5s) linear infinite var(--rotation-direction, normal);
 	transform-origin: center center;
 	padding: 0;
@@ -287,6 +287,7 @@ body {
 	color: var(--white);
 	background-color: var(--dark);
 	box-shadow: var(--shadow-md);
+	z-index: 99;
 }
 
 .header {
@@ -499,7 +500,7 @@ p {
 	}
 
 	.image-container {
-		width: min(100%, 280px);
+		width: min(100%, 240px);
 	}
 
 	.image {
