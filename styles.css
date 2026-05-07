@@ -72,7 +72,7 @@ body {
 	background-color: var(--grey);
 	position: relative;
 	border-radius: 16px;
-	width: min(100%, 520px);
+	width: min(100%, 460px);
 	aspect-ratio: 1 / 1;
 	height: auto;
 	padding: 12px;
@@ -446,6 +446,7 @@ p {
 /* Responsive Design */
 @media (max-width: 1024px) {
 	.main-layout {
+		display: flex;
 		flex-direction: column-reverse;
 		align-items: center;
 		gap: 20px;
@@ -455,6 +456,7 @@ p {
 		position: static;
 		top: auto;
 		width: 100%;
+		justify-content: center;
 	}
 
 	.sidebar {
