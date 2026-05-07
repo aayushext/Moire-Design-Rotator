@@ -15,6 +15,14 @@
 	font-family: "Gill Sans", sans-serif;
 }
 
+/* Prevent horizontal overflow and iOS text autosizing which can cause layout zooming */
+html,
+body {
+	max-width: 100%;
+	overflow-x: hidden;
+	-webkit-text-size-adjust: 100%;
+}
+
 /* Global Styles */
 body {
 	display: flex;
@@ -66,8 +74,9 @@ body {
 	background-color: var(--grey);
 	position: relative;
 	border-radius: 16px;
-	width: 380px;
-	height: 380px;
+	width: min(380px, 100%);
+	aspect-ratio: 1 / 1;
+	height: auto;
 	padding: 12px;
 	box-sizing: content-box;
 	display: flex;
@@ -80,8 +89,9 @@ body {
 /* Images */
 .image {
 	position: absolute;
-	width: 380px;
-	height: 380px;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
 	animation: rotate var(--rotation-speed, 5s) linear infinite var(--rotation-direction, normal);
 	transform-origin: center center;
 	padding: 0;
